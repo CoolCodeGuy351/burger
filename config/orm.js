@@ -2,33 +2,33 @@
 var connection = require("../config/connection.js");
 
 // // Helper function for SQL syntax.
-// function printQuestionMarks(num) {
-//   var arr = [];
+ function printQuestionMarks(num) {
+   var arr = [];
 
-//   for (var i = 0; i < num; i++) {
-//     arr.push("?");
-//   }
+   for (var i = 0; i < num; i++) {
+     arr.push("?");
+  }
 
-//   return arr.toString();
-// }
+   return arr.toString();
+ }
 
-// // Helper function for SQL syntax.
-// function objToSql(ob) {
-//   var arr = [];
+ // Helper function for SQL syntax.
+ function objToSql(ob) {
+   var arr = [];
 
-//   for (var key in ob) {
-//     if (Object.hasOwnProperty.call(ob, key)) {
-//       arr.push(key + "=" + ob[key]);
-//     }
-//   }
+   for (var key in ob) {
+     if (Object.hasOwnProperty.call(ob, key)) {
+       arr.push(key + "=" + ob[key]);
+     }
+   }
 
-//   return arr.toString();
-// }
+   return arr.toString();
+}
 
 // Object for all our SQL statement functions.
 var orm = {
-  selectAll: function(tableInput, cb) {
-    var queryString = "SELECT * FROM burgers_table;";
+  selectAll: function(cb) {
+    var queryString = "SELECT * FROM burger_table;";
     connection.query(queryString, function(err, result) {
       if (err) {
         throw err;
@@ -48,8 +48,8 @@ var orm = {
     });
   },
   // An example of objColVals would be {name: panther, sleepy: true}
-  updateOne: function(table, objColVals, condition, cb) {
-    var queryString = "UPDATE " + table;
+  updateOne: function(objColVals, condition, cb) {
+    var queryString = "UPDATE "
 
     queryString += " SET ";
     queryString += objToSql(objColVals);
