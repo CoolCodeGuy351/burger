@@ -22,14 +22,14 @@
 <h2>Burgers Devoured (Eaten)!</h2>
 
 <ul>
-  {{#each burger}}
-    
+  {{#each burger_table}}
+    {{#if this.devoured === false}}
       <li>
         {{this.burger_name}}
 
 
       </li>
-    
+    {{/if}}
   {{/each}}
 </ul>
 
