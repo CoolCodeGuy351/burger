@@ -3,7 +3,7 @@
 <h2>Burgers ready to eat!</h2>
 
 <ul>
-  {{#each burger}}
+  {{#each burger_table}}
     
       <li>
         {{this.burger_name}}
@@ -13,7 +13,7 @@
           <button type="submit">Eat!</button>
         </form>
 
-        {{> burger/delete-burger}}
+   
       </li>
   
   {{/each}}
@@ -23,7 +23,7 @@
 
 <ul>
   {{#each burger_table}}
-    {{#if this.devoured === false}}
+    {{#if this.devoured}}
       <li>
         {{this.burger_name}}
 
@@ -43,7 +43,7 @@
 
   <div class="form-group">
     <label for="devoured">Not Eaten</label><br>
-    <input type="radio" name="devoured" value="false" checked> Not Eaten!<br>
+    <input type="radio" name="devoured" value="0" checked> Not Eaten!<br>
   </div>
 
   <button type="submit">Add Burger</button>
