@@ -4,7 +4,7 @@
 
 <ul>
   {{#each burger_table}}
-    
+    {{#unless this.devoured}}
       <li>
         {{this.burger_name}}
 
@@ -15,7 +15,7 @@
 
    
       </li>
-  
+    {{/unless}}
   {{/each}}
 </ul>
 
